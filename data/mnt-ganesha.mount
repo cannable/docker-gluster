@@ -1,0 +1,15 @@
+# Glusterfs Brick Mount
+
+[Unit]
+Description=Glusterfs mountpoint
+Before=nfs-ganesha.service
+After=glusterd.service
+
+[Mount]
+What=localhost:docker-data
+Where=/mnt/ganesha
+Type=glusterfs
+
+[Install]
+WantedBy=network-fs.target nfs-ganesha.service
+

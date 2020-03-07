@@ -6,7 +6,8 @@ ENV GANESHA_MAJOR=2.8 \
 
 
 COPY ["./data", "/data"]
-RUN ["/bin/bash", "/data/build.sh"]
+RUN ["/bin/bash", "/data/build-dnf.sh"]
+RUN ["/bin/bash", "/data/build-config.sh"]
 
 
 VOLUME ["/etc/ganesha", \

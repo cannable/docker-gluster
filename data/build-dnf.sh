@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # ------------------------------------------------------------------------------
-# Gluster/nfs-ganesha Build Script
+# Gluster/nfs-ganesha Package Installation
 # ------------------------------------------------------------------------------
 
 
@@ -35,11 +35,6 @@ dnf -y install \
   glusterfs-server \
   nfs-ganesha-gluster \
   bind-utils
-
-
-# Enable Services
-ln -s /lib/systemd/system/glusterd.service /etc/systemd/system/multi-user.target.wants/glusterd.service
-ln -s /usr/lib/systemd/system/nfs-ganesha.service /etc/systemd/system/multi-user.target.wants/nfs-ganesha.service
 
 
 # Cleanup
