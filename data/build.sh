@@ -34,17 +34,17 @@ dnf --setopt=tsflags=nodocs -y check-update
 dnf -y install dnf-plugins-core
 dnf config-manager --set-enabled PowerTools
 #dnf -y install glusterfs-server nfs-ganesha-gluster
-dnf shell << PACKAGES
-  install glusterfs-server
-  install nfs-ganesha-gluster
-  install bind-utils
-  run
-PACKAGES
+dnf -y install \
+  glusterfs-cli \
+  glusterfs-server \
+  nfs-ganesha-gluster \
+  bind-utils
 
 
 # Enable Services
-ln -s /lib/systemd/system/glusterd.service /lib/systemd/system/multi-user.target.wants/glusterd.service
+ln -s /lib/systemd/system/glusterd.service /etc/systemd/system/multi-user.target.wants/glusterd.service
 
+#Created symlink /etc/systemd/system/multi-user.target.wants/glusterd.service → /usr/lib/systemd/system/glusterd.service.
 
 # Cleanup
 dnf clean all
