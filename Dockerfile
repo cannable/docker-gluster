@@ -1,7 +1,20 @@
 FROM centos:latest
 
+
+ENV GANESHA_MAJOR=2.8 \
+    GANESHA_MINOR=2.8.0
+
+
 COPY ["./data", "/data"]
 RUN ["/bin/bash", "/data/build.sh"]
+
+
+VOLUME ["/etc/ganesha", \
+        "/etc/glusterfs", \
+        "/var/lib/glusterd", \
+        "/var/lib/nfs", \
+        "/var/log/ganesha", \
+        "/var/log/glusterfs"]
 
 
 EXPOSE "111/tcp" \
