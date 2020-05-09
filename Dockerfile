@@ -1,12 +1,8 @@
-FROM centos:latest
-
-
-ENV GANESHA_MAJOR=2.8 \
-    GANESHA_MINOR=2.8.0
+FROM centos:7
 
 
 COPY ["./data", "/data"]
-RUN ["/bin/bash", "/data/build-dnf.sh"]
+RUN ["/bin/bash", "/data/build-packages.sh"]
 RUN ["/bin/bash", "/data/build-config.sh"]
 
 
